@@ -1,0 +1,329 @@
+#set A (strings)
+#1.Write a python program to check whether the string is Symmetrical or Palindrome
+def symmetrical(str1,str2):
+ if(str1==str2):
+     print("given string is Symmetrical")
+ else:
+     print("given string is Not Symmetrical")
+def palindrome(str1,str2):
+ if(str1==str2[::-1]):
+   print("given string is Palindrome")
+ else:
+   print("given string is Not Palindrome")
+
+str=input("Enter any string")
+size=len(str)
+mid=size//2
+if(size%2==0):
+    str1=str[:mid]
+    str2=str[mid:]
+else:
+    str1=str[:mid]
+    str2=str[mid+1:]
+symmetrical(str1,str2)
+palindrome(str1,str2)
+Enter any stringmadam
+given string is Not Symmetrical
+given string is Palindrome
+#2.Write a python program to Reverse words in a given String
+string = "I am a python programmer"
+words = string.split()
+words = list(reversed(words))
+print(" ".join(words))
+programmer python a am I
+#3.Write a python program to remove i’th character from string in different ways
+def remove_char(s, i):
+    a = s[ : i]
+    b = s[i + 1: ]
+
+    return a+b
+
+string = "Pythonisgood"
+# Remove ith index element
+i = 5
+print(remove_char(string,i-1))
+Pythnisgood
+#set A (Functions)
+#1.Write a Python function to find the Max of three numbers.
+n1=int(input("Enter first number: "));
+n2=int(input("Enter second number: "));
+n3=int(input("Enter Third number: "));
+def max():
+    if(n1>=n2) and (n1>=n3):
+        l=n1
+    elif(n2>=n1) and (n2>=n3):
+         l=n2
+    else:
+         l=n3
+    print("Largest number among  the three is",l)
+max()
+Enter first number: 12
+Enter second number: 20
+Enter Third number: 49
+Largest number among  the three is 49
+#2.Write a Python function to sum all the numbers in a list.
+def sum(numbers):
+    total = 0
+    for x in numbers:
+        total += x
+    return total
+print(sum((8, 2, 3, 0, 7)))
+20
+#3.Write a Python program to reverse a string.
+def reverse(str):   
+    str = str[::-1]   
+    return str   
+    
+s = "Hello I am sakshi"  
+print ("The original string  is : ",s)   
+print ("The reversed string using extended slice operator  is : ",reverse(s))  
+The original string  is :  Hello I am sakshi
+The reversed string using extended slice operator  is :  ihskas ma I olleH
+#set B (strings)
+#1.Write a python program to print even length words in a string
+def printWords(s):
+    print(s)
+    s = s.split(' ') 
+    for word in s: 
+        if len(word)%2==0:
+            print(word) 
+            
+    s = "i am sakshi" 
+printWords(s) 
+Hello I am sakshi
+am
+sakshi
+#2.Write a python program to accept the strings which contains all vowels
+def check(string):
+    string = string.replace(' ', '')
+    string = string.lower()
+    vowel = [string.count('a'), string.count('e'), string.count(
+        'i'), string.count('o'), string.count('u')]
+
+    if vowel.count(0) > 0:
+        return('not accepted')
+    else:
+        return('accepted')
+
+if __name__ == "__main__":
+
+    string = input("Enter string:")
+    print(check(string))
+Enter string:sakshi
+not accepted
+#3.Write a python program to Count the Number of matching characters in a pair of string
+import re
+ip1 = input("Enter string1:")
+ip2 = input("Enter string2:")
+  
+c = 0
+for i in ip1:
+    if re.search(i,ip2):
+        c=c+1
+print("No. of matching characters are ", c)
+Enter string1:hello
+Enter string2:hi
+No. of matching characters are  1
+#set B (Functions)
+#1. Write a Python function that takes a list and returns a new list with unique elements of the first list
+def f(list):
+
+    a=set(list)
+
+    print(sorted(a))
+
+f([1,1,1,2,3,4])
+[1, 2, 3, 4]
+#2.Write a Python function that takes a number as a parameter and check the number is prime or not
+def PrimeChecker(a):  
+    if a > 1:  
+        for j in range(2, int(a/2) + 1):  
+            if (a % j) == 0:  
+                print(a, "is not a prime number")  
+                break  
+        else:  
+            print(a, "is a prime number")  
+    else:  
+        print(a, "is not a prime number")  
+a = int(input("Enter an input number:"))  
+PrimeChecker(a)  
+Enter an input number:9
+9 is not a prime number
+#3.Write a Python function to check whether a number is perfect or not
+n = int(input("Enter any number: "))
+sum1 = 0
+for i in range(1, n):
+    if(n % i == 0):
+        sum1 = sum1 + i
+if (sum1 == n):
+    print("The number is a Perfect number!")
+else:
+    print("The number is not a Perfect number!")
+Enter any number: 10
+The number is not a Perfect number!
+#PROGRAMS FOR PRACTICE:
+#1. Write a Python program to append items from a specified list.
+input = [10, 20, 30, 40, 50]
+key = 5
+  
+result = []
+for ele in input:
+    result.append(ele)
+    result.append(key)
+  
+print(result)
+[10, 5, 20, 5, 30, 5, 40, 5, 50, 5]
+#2.Write a python program Check if a Substring is Present in a Given String
+def check(string, sub_str):
+    if (string.find(sub_str) == -1):
+        print("NO")
+    else:
+        print("YES")
+            
+# driver code
+string = "Hello Tybcs welcome"
+sub_str ="Tybcs"
+check(string, sub_str)
+YES
+#3.Write a python program Words Frequency in String Shorthands
+def freq(str):
+    str = str.split()         
+    str2 = []
+    for i in str:             
+        if i not in str2:
+            str2.append(i)               
+    for i in range(0, len(str2)):
+        print('Frequency of', str2[i], 'is :', str.count(str2[i]))      
+def main():
+    str ='apple mango apple orange orange apple guava mango mango'
+    freq(str)                    
+  
+if __name__=="__main__":
+    main()             
+Frequency of apple is : 3
+Frequency of mango is : 3
+Frequency of orange is : 2
+Frequency of guava is : 1
+#4.Write a python program Convert Snake case to Pascal case
+str1=input("Enter any string")
+newstr1=str1.replace('_',' ')
+print(str1)
+print(newstr1)
+Enter any string2,6,7,9,4
+2,6,7,9,4
+2,6,7,9,4
+#5.Write a Python function to calculate the factorial of a number (a non-negative integer). The functionaccepts the number 
+#as an argument
+def factorial(n):
+    return 1 if (n==1 or n==0) else n * factorial(n - 1);
+num = int(input("Enter any number: "))
+print("Factorial of",num,"is",
+factorial(num))
+Enter any number: 8
+Factorial of 8 is 40320
+#6.Write a Python function to check whether a number is in a given
+start=(int(input("Enter any number1: ")))
+end=(int(input("Enter any number2: ")))
+is_between = (int(input("Enter any number: ")))in range(start,end)
+
+print(is_between)
+Enter any number1: 10
+Enter any number2: 30
+Enter any number: 20
+True
+#7.Write a Python function that accepts a string and calculate the number of upper case letters and lower case
+def string_test(s):
+    d={"UPPER_CASE":0, "LOWER_CASE":0}
+    for c in s:
+        if c.isupper():
+           d["UPPER_CASE"]+=1
+        elif c.islower():
+           d["LOWER_CASE"]+=1
+        else:
+           pass
+    print ("Original String : ", s)
+    print ("No. of Upper case characters : ", d["UPPER_CASE"])
+    print ("No. of Lower case Characters : ", d["LOWER_CASE"])
+
+string_test(input("Enter any string:"))
+Enter any string:Sakshi
+Original String :  Sakshi
+No. of Upper case characters :  1
+No. of Lower case Characters :  5
+#8. Write a Python program to detect the number of local variables declared in a function.
+def scope():
+    a = 17
+    b = 9
+    c = 2000
+    str = 'Python'
+
+print("Number of local varibales available:",scope.__code__.co_nlocals)
+Number of local varibales available: 4
+#9.Write a python program to Remove all duplicates from a given string in Python
+def removeDuplicate(str, n):
+    s = set()
+    for i in str:
+        s.add(i)
+    st = ""
+    for i in s:
+        st = st+i
+    return st
+str = (input("Enter any string:"))
+print(str)
+n = len(str)
+print(removeDuplicate(list(str), n))
+Enter any string:sakshi@01
+sakshi@01
+kasih1@0
+#10.Write a Python function that checks whether a passed string is palindrome or
+def isPalindrome(s):
+    return string == string[::-1]
+string = (input("Enter any string:"))
+ans = isPalindrome(string)
+print(string)
+if ans:
+    print("given string is palindrome")
+else:
+    print("given string is not palindrome")
+Enter any string:mama
+mama
+given string is not palindrome
+#11.Write a Python program that accepts a hyphen-separated sequence of words as input and prints the words in a
+#hyphen-separated sequence after sorting them alphabetically.
+str=input("Enter any string:")
+s=str.split('-')
+print(s)
+s.sort()
+print(s)
+print('-'.join(s))
+Enter any string:hello
+['hello']
+['hello']
+hello
+#12.Write a Python function to create and print a list where the values are square of numbers
+#between 1 and 50 (both included).
+def printValues():
+    l = list()
+    for i in range(1,51):
+        l.append(i**2)
+    print(l)
+ 
+printValues()
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529, 576, 625, 676, 729, 784, 841, 900, 961, 1024, 1089, 1156, 1225, 1296, 1369, 1444, 1521, 1600, 1681, 1764, 1849, 1936, 2025, 2116, 2209, 2304, 2401, 2500]
+#13.Write a Python program to execute a string containing Python code.
+my_string =input("Enter any string:")
+print(my_string)
+Enter any string:sakshu
+sakshu
+#14.Write a Python program to access a function inside a function.
+def function(a):
+        def add(b):
+                nonlocal a
+                a += 1
+                return a+b
+        return add
+func= function(int(input("Enter any number: ")))
+print(func(int(input("Enter any number: "))))
+Enter any number: 6
+Enter any number: 5
+12
