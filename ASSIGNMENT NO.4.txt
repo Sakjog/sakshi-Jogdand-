@@ -1,0 +1,371 @@
+#SET A
+#1. Write a Python program to read an entire text file.
+def file_read(sample):
+    txt = open(sample)
+    print(txt.read())
+
+file_read("sample.txt")
+#2. Write a Python program to compute the number of characters, words and lines in a file.
+file = open("sample.txt","r")
+
+no_of_lines = 0
+no_of_words = 0
+no_of_char = 0
+
+for line in file:
+    line = line.strip("\n")   
+    words = line.split()
+
+    no_of_lines += 1
+    no_of_words += len(words)
+    no_of_char += len(line)
+
+file.close()
+print("lines:", no_of_lines, "words:", no_of_words, "char:", no_of_char)
+lines: 0 words: 0 char: 0
+#3. Write a Python script to print the current date in following format “Sun May 29 02:26:23
+#IST 2017”
+import time
+ltime = time.localtime()
+print(time.strftime("%a %b %d %H:%M:%S %Z %Y", ltime))
+Sat Feb 26 20:17:40 India Standard Time 2022
+#SET B
+#1. Write a Python program to append text to a file and display the text.
+testfile = open("sample.txt", "a")
+
+testfile.write("\n welcome to python practical")
+testfile.close()
+
+appended_file = open("sample.txt", "r")
+print(appended_file.read())
+ welcome to python practical
+#2. Write a Python program to print each line of a file in reverse order.
+f1 = open("sample.txt", "w")
+
+with open("sample.txt", "r") as myfile:
+	data = myfile.read()
+data_1 = data[::-1]
+f1.write(data_1)
+f1.close()
+print("done")
+done
+#3. Write a Python program to print date, time for today and now
+import datetime
+
+now = datetime.datetime.now()
+print("Current date and time : ")
+print(now.strftime("%d-%m-%Y %H:%M:%S"))
+Current date and time : 
+26-02-2022 20:17:40
+#PROGRAMS FOR PRACTICE:
+#1. Write a Python program to read an entire text file.
+def file_read(fname):
+        txt = open(fname)
+        print(txt.read())
+
+file_read('sample1.txt')
+print("done")
+Python practical
+Assignment 4
+done
+#2. Write a Python program to read first n lines of a file.
+def file_read_from_head(fname, nlines):
+        from itertools import islice
+        with open(fname) as f:
+                for line in islice(f, nlines):
+                        print(line)
+file_read_from_head('sample1.txt',2)
+print("done")
+Python practical
+
+Assignment 4
+done
+#3. Write a Python program to append text to a file and display the text.
+def file_read(fname):
+        from itertools import islice
+        with open(fname, "w") as myfile:
+                myfile.write("Python practical\n")
+                myfile.write("Assignment 4")
+        txt = open(fname)
+        print(txt.read())
+file_read('sample1.txt')
+Python practical
+Assignment 4
+#4. Write a Python program to read last n lines of a file.
+def LastNlines(fname, N):
+    with open(fname) as file:
+        for line in (file.readlines() [-N:]):
+            print(line, end ='')
+if __name__ == '__main__':
+    fname = 'sample1.txt'
+    N = 3
+    try:
+        LastNlines(fname, N)
+    except:
+        print('File not found')
+Python practical
+Assignment 4
+#5. Write a Python program to read a file line by line and store it into a list.
+def file_read(fname):
+        with open(fname) as f:
+                content_list = f.readlines()
+                print(content_list)
+
+file_read('sample1.txt')
+['Python practical\n', 'Assignment 4']
+#6. Write a Python program to read a file line by line store it into a variable.
+def file_read(fname):
+        with open (fname, "r") as myfile:
+                data=myfile.readlines()
+                print(data)
+file_read('sample1.txt')
+['Python practical\n', 'Assignment 4']
+#7. Write a Python program to read a file line by line store it into an array.
+def file_read(fname):
+        content_array = []
+        with open(fname) as f:
+                for line in f:
+                        content_array.append(line)
+                print(content_array)
+
+file_read('sample1.txt')
+['Python practical\n', 'Assignment 4']
+#8. Write a python program to find the longest words.
+def longest_word(filename):
+    with open(filename, 'r') as infile:
+              words = infile.read().split()
+    max_len = len(max(words, key=len))
+    return [word for word in words if len(word) == max_len]
+
+print(longest_word('sample1.txt'))
+['Assignment']
+#9. Write a Python program to count the number of lines in a text file.
+def file_lengthy(fname):
+        with open(fname) as f:
+                for i, l in enumerate(f):
+                        pass
+        return i + 1
+print("Number of lines in the file: ",file_lengthy("sample1.txt"))
+Number of lines in the file:  2
+#10. Write a Python program to count the frequency of words in a file.
+from collections import Counter
+def word_count(fname):
+        with open(fname) as f:
+                return Counter(f.read().split())
+
+print("Number of words in the file :",word_count("sample1.txt"))
+Number of words in the file : Counter({'Python': 1, 'practical': 1, 'Assignment': 1, '4': 1})
+#11. Write a Python program to get the file size of a plain file.
+def file_size(fname):
+        import os
+        statinfo = os.stat(fname)
+        return statinfo.st_size
+
+print("File size in bytes of a plain file: ",file_size("sample1.txt"))
+File size in bytes of a plain file:  30
+#12. Write a Python program to write a list to a file.
+color = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+with open('abc.txt', "w") as myfile:
+        for c in color:
+                myfile.write("%s\n" % c)
+
+content = open('abc.txt')
+print(content.read())
+Red
+Green
+White
+Black
+Pink
+Yellow
+
+#13. Write a Python program to copy the contents of a file to another file .
+color = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow','Blue']
+with open('abc.txt', "w") as myfile:
+        for c in color:
+                myfile.write("%s\n" % c)
+
+content = open('abc.txt')
+print(content.read())
+Red
+Green
+White
+Black
+Pink
+Yellow
+Blue
+
+#14. Write a Python program to combine each line from first file with the corresponding line in second file
+with open('abc.txt') as fh1, open('sample1.txt') as fh2:
+    for line1, line2 in zip(fh1, fh2):
+        # line1 from abc.txt, line2 from test.txtg
+        print(line1+line2)
+Red
+Python practical
+
+Green
+Assignment 4
+#15. Write a Python program to remove newline characters from a file
+import random
+def random_line(fname):
+    lines = open(fname).read().splitlines()
+    return random.choice(lines)
+print(random_line('sample1.txt'))
+Assignment 4
+#16. Write a Python program that takes a text file as input and returns the number of words of a given text file.
+#Note: Some words can be separated by a comma with no space.
+import random
+def random_line(fname):
+    lines = open(fname).read().splitlines()
+    return random.choice(lines)
+print(random_line('sample1.txt'))
+Python practical
+#17. Write a Python program to extract characters from various text files and puts them into a list.
+def remove_newlines(fname):
+    flist = open(fname).readlines()
+    return [s.rstrip('\n') for s in flist]
+
+print(remove_newlines("sample1.txt"))
+['Python practical', 'Assignment 4']
+#18. Write a python program to get Current Time
+from datetime import *
+import pytz
+
+
+tz_INDIA = pytz.timezone('Asia/Kolkata')
+datetime_INDIA = datetime.now(tz_INDIA)
+print("INDIA time:", datetime_INDIA.strftime("%H:%M:%S"))
+INDIA time: 20:17:43
+#19. Get Current Date and Time using Python
+import datetime
+current_time = datetime.datetime.now()
+print ("Time now  : ", end = "")
+print (current_time)
+Time now  : 2022-02-26 20:17:43.565081
+#20. Write a python | Find yesterday’s, today’s and tomorrow’s date
+from datetime import datetime, timedelta
+presentday = datetime.now() 
+yesterday = presentday - timedelta(1)
+tomorrow = presentday + timedelta(1)
+print("Yesterday = ", yesterday.strftime('%d-%m-%Y'))
+print("Today = ", presentday.strftime('%d-%m-%Y'))
+print("Tomorrow = ", tomorrow.strftime('%d-%m-%Y'))
+Yesterday =  25-02-2022
+Today =  26-02-2022
+Tomorrow =  27-02-2022
+#21. Write a python program to convert time from 12 hour to 24 hour format
+def convert24(str1):
+    if str1[-2:] == "AM" and str1[:2] == "12":
+        return "00" + str1[2:-2]
+    elif str1[-2:] == "AM":
+        return str1[:-2]
+    elif str1[-2:] == "PM" and str1[:2] == "12":
+        return str1[:-2]
+    else:
+        return str(int(str1[:2]) + 12) + str1[2:8]
+print(convert24("11:05:45 PM"))
+23:05:45
+#22. Write a python program to find difference between current time and given time
+def difference(h1, m1, h2, m2):
+    t1 = h1 * 60 + m1
+    t2 = h2 * 60 + m2
+    if (t1 == t2):
+        print("Both are same times")
+        return
+    else:
+        diff = t2-t1
+    h = (int(diff / 60)) % 24
+    m = diff % 60
+    print(h, ":", m)
+if __name__ == "__main__":
+    difference(7, 20, 9, 45)
+    difference(15, 23, 15, 54)
+2 : 25
+0 : 31
+#23. Write a python Program to Create a Lap Timer
+import time
+
+start_time=time.time()
+end_time=start_time
+lap_num=1
+
+print("Click on ENTER to count laps.\nPress CTRL+C to stop")
+
+try:
+   while True:
+
+      input()
+      time_laps=round((time.time() - end_time), 2)
+
+      tot_time=round((time.time() - start_time), 2)
+
+      print("Lap No. "+str(lap_num))
+      print("Total Time: "+str(tot_time))
+      print("Lap Time: "+str(time_laps))
+
+      print("*"*20)
+
+      end_time=time.time()
+      lap_num+=1
+
+except KeyboardInterrupt:
+   print("Exit!")
+Click on ENTER to count laps.
+Press CTRL+C to stop
+5
+Lap No. 1
+Total Time: 19.43
+Lap Time: 19.43
+********************
+6
+Lap No. 2
+Total Time: 21.16
+Lap Time: 1.73
+********************
+exit
+Lap No. 3
+Total Time: 29.8
+Lap Time: 8.63
+********************
+#24.Convert date string to timestamp in Python
+import time
+import datetime
+
+
+string = "20/01/2020"
+
+element = datetime.datetime.strptime(string,"%d/%m/%Y")
+
+tuple = element.timetuple()
+timestamp = time.mktime(tuple)
+
+print(timestamp)
+1579458600.0
+        #25. Find number of times every day occurs in a Year
+import datetime
+import calendar
+def day_occur_time(year):
+    days = [ "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday","Sunday" ]
+    L = [52 for i in range(7)]
+    pos = -1
+    day = datetime.datetime(year, month = 1, day = 1).strftime("%A")
+    for i in range(7):
+        if day == days[i]:
+            pos = i
+    if calendar.isleap(year):
+        L[pos] += 1
+        L[(pos+1)%7] += 1
+    else:
+        L[pos] += 1
+    for i in range(7):
+        print(days[i], L[i])
+year = 2022
+day_occur_time(year)
+Monday 52
+Tuesday 52
+Wednesday 52
+Thursday 52
+Friday 52
+Saturday 53
+Sunday 52
+ 
+        
