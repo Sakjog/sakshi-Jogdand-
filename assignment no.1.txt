@@ -1,0 +1,228 @@
+SET A
+#1. Python Program to Calculate the Area of a Triangle 
+a = float(input('Enter first side: '))  
+b = float(input('Enter second side: '))  
+c = float(input('Enter third side: ')) 
+s = (a + b + c) / 2 
+area = (s*(s-a)*(s-b)*(s-c)) ** 0.5  
+print('The area of the triangle is %0.2f' %area)
+Enter first side: 7
+Enter second side: 7
+Enter third side: 7
+The area of the triangle is 21.22
+#2Python Program to Swap Two Variables
+
+x = float(input('Enter value of X: ')) 
+y = float(input('Enter value of Y: ')) 
+temp = x
+x = y
+y = temp
+
+print("Value of x:", x)
+print("Value of y:", y)
+Enter value of X: 6
+Enter value of Y: 5
+Value of x: 5.0
+Value of y: 6.0
+#.3 Python Program to Generate a Random Number 
+import random  
+n = random.randint(0,50)  
+print(n) 
+3
+#SET B
+#1.Write a Python Program to Check if a Number is Positive, Negative or Zero 
+num = float(input("Enter a number: "))
+if num >= 0:
+   if num == 0:
+       print("Zero")
+   else:
+       print("Positive number")
+else:
+   print("Negative number")
+Enter a number: 9
+Positive number
+#2.Write a Python Program to Check if a Number is Odd or Even 
+
+num = int(input("Enter a number: "))
+if (num % 2) == 0:
+   print("{0} is Even".format(num))
+else:
+   print("{0} is Odd".format(num))
+Enter a number: 10
+10 is Even
+#3.Write a Python Program to Check Prime Number 
+num = int(input("Enter a number: "))
+flag = False
+if num > 1:
+    for i in range(2, num):
+        if (num % i) == 0:
+            flag = True       
+            break
+if flag:
+ print(num, "is not a prime number")
+else:
+ print(num, "is a prime number")
+Enter a number: 12
+12 is not a prime number
+#4.Write a Python Program to Check Armstrong Number 
+num = int(input("Enter a number: "))
+sum = 0
+temp = num
+while temp > 0:
+   digit = temp % 10
+   sum += digit ** 3
+   temp //= 10
+if num == sum:
+   print(num,"is an Armstrong number")
+else:
+   print(num,"is not an Armstrong number")
+Enter a number: 5
+5 is not an Armstrong number
+#5.Write a Python Program to Find the Factorial of a Number 
+num = int(input("Enter a number: "))
+
+factorial = 1
+if num < 0:
+   print("Sorry, factorial does not exist for negative numbers")
+elif num == 0:
+   print("The factorial of 0 is 1")
+else:
+   for i in range(1,num + 1):
+       factorial = factorial*i
+   print("The factorial of",num,"is",factorial)
+Enter a number: 6
+The factorial of 6 is 720
+#PROGRAMS FOR PRACTICE:
+#1. Python Program to Convert Kilometers to Miles 
+kilometers = float(input("Enter value in kilometers: "))
+conv_fac = 0.621371
+miles = kilometers * conv_fac
+print('%0.2f kilometers is equal to %0.2f miles' %(kilometers,miles))
+Enter value in kilometers: 8
+8.00 kilometers is equal to 4.97 miles
+#2.Python Program to Convert Celsius To Fahrenheit 
+celsius = float(input("Enter value in celsius: "))
+fahrenheit = (celsius * 1.8) + 32
+print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))
+Enter value in celsius: 8
+8.0 degree Celsius is equal to 46.4 degree Fahrenheit
+#3.Write a Python Program to Check Leap Year 
+year = int(input("Enter a year: "))
+if (year % 400 == 0) and (year % 100 == 0):
+    print("{0} is a leap year".format(year))
+elif (year % 4 ==0) and (year % 100 != 0):
+    print("{0} is a leap year".format(year))
+else:
+    print("{0} is not a leap year".format(year))
+Enter a year: 2002
+2002 is not a leap year
+#4.Write a Python Program to Print all Prime Numbers in an Interval 
+lower = int(input("Enter the lower number:"))
+upper = int(input("Enter the upper number: "))
+print("Prime numbers between", lower, "and", upper, "are:")
+for num in range(lower, upper + 1):
+     if num > 1:
+       for i in range(2, num):
+           if (num % i) == 0:
+               break
+       else:
+           print(num)
+Enter the lower number:10
+Enter the upper number: 100
+Prime numbers between 10 and 100 are:
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+#5.Write a Python Program to Print the Fibonacci sequence 
+n_terms = int(input ("How many terms the user wants to print? "))  
+n_1 = 0  
+n_2 = 1  
+count = 0  
+if n_terms <= 0:  
+    print ("Please enter a positive integer, the given number is not valid")  
+elif n_terms == 1:  
+    print ("The Fibonacci sequence of the numbers up to", n_terms, ": ")  
+    print(n_1)  
+else:  
+    print ("The fibonacci sequence of the numbers is:")  
+    while count < n_terms:  
+        print(n_1)  
+        nth = n_1 + n_2  
+        n_1 = n_2  
+        n_2 = nth  
+        count += 1  
+How many terms the user wants to print? 10
+The fibonacci sequence of the numbers is:
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+#6.Write a Python Program to Find Armstrong Number in an Interval 
+lower = int(input("Enter the lower number:"))
+upper = int(input("Enter the upper number:"))
+
+for num in range(lower, upper + 1):
+
+   # order of number
+   order = len(str(num))
+    
+   # initialize sum
+   sum = 0
+
+   temp = num
+   while temp > 0:
+       digit = temp % 10
+       sum += digit ** order
+       temp //= 10
+
+   if num == sum:
+       print(num)
+Enter the lower number:1
+Enter the upper number:10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+#7.Write a Python Program to Find the Sum of Natural Numbers 
+num = int(input("Enter the number:"))
+
+if num < 0:
+   print("Enter a positive number")
+else:
+   sum = 0
+   # use while loop to iterate until zero
+   while(num > 0):
+       sum += num
+       num -= 1
+   print("The sum is", sum)
+Enter the number:10
+The sum is 55
